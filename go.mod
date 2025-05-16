@@ -1,4 +1,4 @@
-module github.com/aurc/loggo
+module github.com/badaniya/loggo
 
 go 1.23
 

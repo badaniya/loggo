@@ -108,7 +108,6 @@ func NewLogReader(app *LoggoApp, reader reader.Reader) *LogView {
 	})
 
 	go func() {
-
 	}()
 
 	lv.read()
@@ -116,7 +115,7 @@ func NewLogReader(app *LoggoApp, reader reader.Reader) *LogView {
 	lv.filterChannel <- nil
 
 	go func() {
-		lv.app.ShowModal(NewSplashScreen(lv.app), 71, 16, tcell.ColorBlack, nil)
+		lv.app.ShowModal(NewSplashScreen(lv.app), 71, 16, tcell.ColorDefault, nil)
 		lv.app.Draw()
 		time.Sleep(2 * time.Second)
 		lv.app.DismissModal(lv.table)
@@ -247,14 +246,14 @@ func (l *LogView) makeLayouts() {
 			AddItem(NewHorizontalSeparator(color.FieldStyle, LineHThick, "", 0), 1, 2, false)
 	}
 	l.Flex.AddItem(mainContent, 0, 2, false).
-		//AddItem(l.navMenu, 1, 1, false).
-		//AddItem(l.mainMenu, 1, 1, false).
+		// AddItem(l.navMenu, 1, 1, false).
+		// AddItem(l.mainMenu, 1, 1, false).
 		SetBackgroundColor(color.ColorBackgroundField)
 	l.app.SetFocus(l.table)
 }
 
 func (l *LogView) showAbout() {
-	l.app.ShowModal(NewSplashScreen(l.app), 71, 16, tcell.ColorBlack, nil)
+	l.app.ShowModal(NewSplashScreen(l.app), 71, 16, tcell.ColorDefault, nil)
 	l.app.Draw()
 	time.Sleep(4 * time.Second)
 	l.app.DismissModal(l.table)

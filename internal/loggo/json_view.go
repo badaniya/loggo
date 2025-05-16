@@ -57,7 +57,8 @@ type JsonView struct {
 }
 
 func NewJsonView(app Loggo, showQuit bool,
-	toggleFullScreenCallback, closeCallback func()) *JsonView {
+	toggleFullScreenCallback, closeCallback func(),
+) *JsonView {
 	v := &JsonView{
 		Flex:                     *tview.NewFlex(),
 		app:                      app,
@@ -411,9 +412,7 @@ func (j *JsonView) processNode(k, v interface{}, indent string, text *strings.Bu
 	key := fmt.Sprintf(`%s%s"%v"%s: `, indent, color.ClField, k, color.ClWhite)
 	text.WriteString(key)
 	switch tp := v.(type) {
-	case int,
-		float64,
-		bool:
+	case int, float64, bool:
 		j.processNumeric(text, v, "")
 	case string:
 		j.processString(text, v, "")
@@ -459,8 +458,8 @@ func (j *JsonView) processObject(text *strings.Builder, val interface{}, indent 
 
 func (j *JsonView) processString(text *strings.Builder, v interface{}, indent string) {
 	val := fmt.Sprintf(`%v`, v)
-	//val = strings.ReplaceAll(val, "\"", "\\\"")
-	//val = strings.ReplaceAll(val, "\n", "\\n")
+	// val = strings.ReplaceAll(val, "\"", "\\\"")
+	// val = strings.ReplaceAll(val, "\n", "\\n")
 	if word := j.captureWordSection(v, j.withSearchTag); len(word) > 0 {
 		val = word
 	}
@@ -480,9 +479,7 @@ func (j *JsonView) processNumeric(text *strings.Builder, v interface{}, indent s
 
 func (j *JsonView) processArrayItem(v interface{}, indent string, text *strings.Builder, last bool) {
 	switch tp := v.(type) {
-	case int,
-		float64,
-		bool:
+	case int, float64, bool:
 		j.processNumeric(text, v, indent)
 	case string:
 		j.processString(text, v, indent)

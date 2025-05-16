@@ -85,13 +85,13 @@ func (t *TemplateItemView) makeUIComponents() {
 		func(text string) {
 			t.key.Color.Foreground = strings.TrimSpace(text)
 		})
-	//text bg color
+	// text bg color
 	textBgColor := NewColorPickerButton(t.app, "Background Color",
 		config.GetBackgroundColorName(colorable, "black"), maxFieldWidth,
 		func(text string) {
 			t.key.Color.Background = strings.TrimSpace(text)
 		})
-	//selectType
+	// selectType
 	typeDD := tview.NewDropDown().
 		SetLabel("Type [red]*").
 		SetListStyles(color.FieldStyle, color.SelectStyle).
@@ -120,7 +120,7 @@ func (t *TemplateItemView) makeUIComponents() {
 	typeDD.SetCurrentOption(currOpt)
 
 	t.form = tview.NewForm().
-		SetFieldBackgroundColor(tcell.ColorDarkGray).
+		SetFieldBackgroundColor(tcell.ColorDefault).
 		SetFieldTextColor(tcell.ColorBlack).
 		AddInputField("Key [red]*", t.key.Name, maxFieldWidth, nil, func(text string) {
 			t.key.Name = strings.TrimSpace(text)
@@ -147,7 +147,7 @@ func (t *TemplateItemView) makeUIComponents() {
 
 	t.makeCaseWhenForm()
 	t.caseWhenLayout = tview.NewFlex().SetDirection(tview.FlexRow)
-	t.caseWhenLayout.SetBackgroundColor(tcell.ColorBlack)
+	t.caseWhenLayout.SetBackgroundColor(tcell.ColorDefault)
 	t.caseWhenTable = tview.NewTable()
 
 	t.app.SetFocus(t.form)
@@ -167,7 +167,7 @@ func (t *TemplateItemView) makeCaseWhenForm() {
 		func(text string) {
 			t.caseWhenCurrent.Color.Foreground = strings.TrimSpace(text)
 		})
-	//text bg color
+	// text bg color
 	caseWhenTextBgColor := NewColorPickerButton(t.app, "[::iu]and[::-], Background Color",
 		config.GetBackgroundColorName(caseWhenColorable, "black"), maxFieldWidth,
 		func(text string) {
@@ -175,7 +175,7 @@ func (t *TemplateItemView) makeCaseWhenForm() {
 		})
 
 	t.caseWhenForm = tview.NewForm().
-		SetFieldBackgroundColor(tcell.ColorDarkGray).
+		SetFieldBackgroundColor(tcell.ColorDefault).
 		SetFieldTextColor(tcell.ColorBlack).
 		AddInputField("[::iu]when[::-] Value Matches", t.caseWhenCurrent.MatchValue, maxFieldWidth, nil, func(text string) {
 			t.caseWhenCurrent.MatchValue = strings.TrimSpace(text)
@@ -208,6 +208,7 @@ func (t *TemplateItemView) makeCaseWhenForm() {
 			}
 		})
 }
+
 func (t *TemplateItemView) makeLayouts() {
 	t.makeContextMenu()
 
@@ -223,7 +224,7 @@ func (t *TemplateItemView) makeLayouts() {
 		AddItem(t.caseWhenLayout, 0, 1, false)
 
 	t.Flex.Clear().SetDirection(tview.FlexRow).
-		//AddItem(t.contextMenu, 3, 1, false).
+		// AddItem(t.contextMenu, 3, 1, false).
 		AddItem(formLayout, 0, 2, true).
 		SetBackgroundColor(color.ColorBackgroundField)
 

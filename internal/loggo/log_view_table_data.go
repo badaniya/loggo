@@ -47,7 +47,7 @@ func (d *LogData) GetCell(row, column int) *tview.TableCell {
 		if row == 0 {
 			tc := tview.NewTableCell("[yellow] Line # ").
 				SetAlign(tview.AlignCenter).
-				SetBackgroundColor(tcell.ColorBlack).
+				SetBackgroundColor(tcell.ColorDefault).
 				SetSelectable(false)
 			return tc
 		} else {
@@ -55,13 +55,13 @@ func (d *LogData) GetCell(row, column int) *tview.TableCell {
 				tc := tview.NewTableCell(fmt.Sprintf("%d ", row)).
 					SetTextColor(tcell.ColorRed).
 					SetAlign(tview.AlignRight).
-					SetBackgroundColor(tcell.ColorBlack)
+					SetBackgroundColor(tcell.ColorDefault)
 				return tc
 			} else {
 				tc := tview.NewTableCell(fmt.Sprintf("%d ", row)).
 					SetTextColor(tcell.ColorYellow).
 					SetAlign(tview.AlignRight).
-					SetBackgroundColor(tcell.ColorBlack)
+					SetBackgroundColor(tcell.ColorDefault)
 				return tc
 			}
 		}
@@ -80,7 +80,7 @@ func (d *LogData) GetCell(row, column int) *tview.TableCell {
 	if row == 0 {
 		tc.SetTextColor(tcell.ColorYellow).
 			SetAlign(tview.AlignCenter).
-			SetBackgroundColor(tcell.ColorBlack).
+			SetBackgroundColor(tcell.ColorDefault).
 			SetSelectable(false)
 		return tc
 	}

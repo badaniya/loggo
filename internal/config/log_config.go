@@ -77,7 +77,7 @@ func (c *Color) GetBackgroundColor() tcell.Color {
 	if len(c.Background) > 0 {
 		return tcell.GetColor(strings.ToLower(c.Background))
 	}
-	return tcell.ColorBlack
+	return tcell.ColorDefault
 }
 
 func (c *Color) GetForegroundColor() tcell.Color {
@@ -182,7 +182,7 @@ func (t Type) GetColorName() string {
 	case TypeDateTime:
 		return "purple"
 	}
-	return "lightgray"
+	return "default"
 }
 
 func (t Type) GetColor() tcell.Color {
@@ -202,12 +202,12 @@ const defaultConfig = `keys:
     layout: 2006-01-02T15:04:05-0700
     color:
       foreground: purple
-      background: black
+      background: default
   - name: severity
     type: string
     color:
       foreground: white
-      background: black
+      background: default
     color-when:
       - match-value: ERROR
         color:
@@ -216,28 +216,28 @@ const defaultConfig = `keys:
       - match-value: INFO
         color:
           foreground: green
-          background: black
+          background: default
       - match-value: WARN
         color:
           foreground: yellow
-          background: black
+          background: default
       - match-value: DEBUG
         color:
           foreground: blue
-          background: black
+          background: default
   - name: resource/labels/container_name
     type: string
     color:
       foreground: darkgreen
-      background: black
+      background: default
   - name: trace
     type: string
     color:
       foreground: white
-      background: black
+      background: default
   - name: jsonPayload/message
     type: string
     max-width: 40
     color:
       foreground: white
-      background: black`
+      background: default`

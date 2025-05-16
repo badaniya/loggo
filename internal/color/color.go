@@ -25,10 +25,10 @@ package color
 import "github.com/gdamore/tcell/v2"
 
 const (
-	ColorBackgroundField    = tcell.ColorBlack
+	ColorBackgroundField    = tcell.ColorDefault
 	ColorForegroundField    = tcell.ColorWhite
-	ColorSelectedBackground = tcell.Color69
-	ColorSelectedForeground = tcell.ColorWhite
+	ColorSelectedBackground = tcell.ColorDefault
+	ColorSelectedForeground = tcell.ColorGrey
 )
 
 var (

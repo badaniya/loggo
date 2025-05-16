@@ -57,9 +57,9 @@ func (l *LogView) populateMenu() {
 
 	l.navMenu = tview.NewFlex().SetDirection(tview.FlexRow)
 	l.navMenu.
-		SetBackgroundColor(color.ColorBackgroundField).SetBorderPadding(0, 0, 0, 0)
+		SetBackgroundColor(tcell.ColorDefault).SetBorderPadding(0, 0, 0, 0)
 	sepForeground := tview.Styles.ContrastBackgroundColor
-	sepStyle := tcell.StyleDefault.Background(tcell.ColorBlack).Foreground(sepForeground)
+	sepStyle := tcell.StyleDefault.Background(tcell.ColorDefault).Foreground(sepForeground)
 	l.navMenu.
 		//////////////////////////////////////////////////////////////////
 		// Stream Menu
@@ -217,7 +217,7 @@ func (l *LogView) textViewMenuControl(tv *tview.TextView, onFocus func()) *tview
 			onFocus()
 		}
 	})
-	//onFocus()
+	// onFocus()
 	return tv
 }
 

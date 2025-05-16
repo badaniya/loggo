@@ -52,7 +52,7 @@ func NewSplashScreen(app Loggo) *SplashScreen {
 }
 
 func (t *SplashScreen) makeUIComponents() {
-	t.Flex.SetBackgroundColor(tcell.ColorBlack)
+	t.Flex.SetBackgroundColor(tcell.ColorDefault)
 	c := char.NewCanvas().WithWord(char.LoggoLogo...).WithDimensions(69, 11)
 	t.canvas = c.PrintCanvas()
 	t.titleView = tview.NewTextView().SetDynamicColors(true).SetTextAlign(tview.AlignCenter)
@@ -61,7 +61,7 @@ func (t *SplashScreen) makeUIComponents() {
 [white:black:b]l'oGGo %s[::-]: [yellow::u]Rich Terminal User Interface for following JSON logs
 [gray::-]Copyright © 2022 Aurelio Calegari, et al.
 [lightgray::u]https://github.com/aurc/loggo
-`, BuildVersion)).SetBackgroundColor(tcell.ColorBlack)
+`, BuildVersion)).SetBackgroundColor(tcell.ColorDefault)
 }
 
 func (t *SplashScreen) renderLogo() {
@@ -127,8 +127,8 @@ func (t *SplashScreen) renderLogo() {
 		for i := len(steps) - 1; i >= 0; i-- {
 			s := steps[i]
 			bgColor := fmt.Sprintf(`[%s:%s]`, s.fg, s.bg)
-			//txColor := fmt.Sprintf(`[%s:%s]`, s.tx, s.bg)
-			//shColor := fmt.Sprintf(`[%s:%s]`, s.sh, s.bg)
+			// txColor := fmt.Sprintf(`[%s:%s]`, s.tx, s.bg)
+			// shColor := fmt.Sprintf(`[%s:%s]`, s.sh, s.bg)
 			text := t.PrintCanvasAsColorString('▓', '░', txColor, shColor, bgColor)
 			t.titleView.SetText(text)
 			time.Sleep(25 * time.Millisecond)

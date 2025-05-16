@@ -124,7 +124,7 @@ var defConfig = Config{
 			Layout: "2006-01-02T15:04:05-0700",
 			Color: Color{
 				Foreground: "purple",
-				Background: "black",
+				Background: "default",
 			},
 		},
 		{
@@ -132,7 +132,7 @@ var defConfig = Config{
 			Type: TypeString,
 			Color: Color{
 				Foreground: "white",
-				Background: "black",
+				Background: "default",
 			},
 			ColorWhen: []ColorWhen{
 				{
@@ -146,21 +146,21 @@ var defConfig = Config{
 					MatchValue: "INFO",
 					Color: Color{
 						Foreground: "green",
-						Background: "black",
+						Background: "default",
 					},
 				},
 				{
 					MatchValue: "WARN",
 					Color: Color{
 						Foreground: "yellow",
-						Background: "black",
+						Background: "default",
 					},
 				},
 				{
 					MatchValue: "DEBUG",
 					Color: Color{
 						Foreground: "blue",
-						Background: "black",
+						Background: "default",
 					},
 				},
 			},
@@ -170,7 +170,7 @@ var defConfig = Config{
 			Type: TypeString,
 			Color: Color{
 				Foreground: "darkgreen",
-				Background: "black",
+				Background: "default",
 			},
 		},
 		{
@@ -178,7 +178,7 @@ var defConfig = Config{
 			Type: TypeString,
 			Color: Color{
 				Foreground: "white",
-				Background: "black",
+				Background: "default",
 			},
 		},
 		{
@@ -186,7 +186,7 @@ var defConfig = Config{
 			Type: TypeString,
 			Color: Color{
 				Foreground: "white",
-				Background: "black",
+				Background: "default",
 			},
 		},
 	},

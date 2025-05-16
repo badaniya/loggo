@@ -292,7 +292,7 @@ func (t *TemplateView) addEntry() {
 		Type: config.TypeString,
 		Color: config.Color{
 			Foreground: "white",
-			Background: "black",
+			Background: "default",
 		},
 	}
 	t.app.StackView(NewTemplateItemView(t.app, v, nil, func() {
@@ -408,7 +408,7 @@ func (d *TemplateData) GetCell(row, column int) *tview.TableCell {
 		return tview.NewTableCell(columnNames[column]).
 			SetTextColor(tcell.ColorYellow).
 			SetAlign(tview.AlignCenter).
-			SetBackgroundColor(tcell.ColorBlack).SetSelectable(false)
+			SetBackgroundColor(tcell.ColorDefault).SetSelectable(false)
 	}
 	// Set Body Cells
 	k := c.Keys[row-1]

@@ -68,7 +68,7 @@ func MakeConfigFromSample(sample []map[string]interface{}, mergeWith ...Key) (*C
 				Type: TypeString,
 				Color: Color{
 					Foreground: "white",
-					Background: "black",
+					Background: "default",
 				},
 				MaxWidth: 25,
 			}
@@ -155,7 +155,7 @@ var (
 				Type: TypeDateTime,
 				Color: Color{
 					Foreground: "purple",
-					Background: "black",
+					Background: "default",
 				},
 			}
 		},
@@ -169,7 +169,7 @@ var (
 				MaxWidth: 32,
 				Color: Color{
 					Foreground: "olive",
-					Background: "black",
+					Background: "default",
 				},
 			}
 		},
@@ -182,35 +182,35 @@ var (
 				Type: TypeString,
 				Color: Color{
 					Foreground: "white",
-					Background: "black",
+					Background: "default",
 				},
 				ColorWhen: []ColorWhen{
 					{
 						MatchValue: "(?i)error",
 						Color: Color{
 							Foreground: "red",
-							Background: "black",
+							Background: "default",
 						},
 					},
 					{
 						MatchValue: "(?i)info",
 						Color: Color{
 							Foreground: "green",
-							Background: "black",
+							Background: "default",
 						},
 					},
 					{
 						MatchValue: "(?i)warn",
 						Color: Color{
 							Foreground: "orange",
-							Background: "black",
+							Background: "default",
 						},
 					},
 					{
 						MatchValue: "(?i)debug",
 						Color: Color{
 							Foreground: "blue",
-							Background: "black",
+							Background: "default",
 						},
 					},
 				},
@@ -230,7 +230,7 @@ var (
 				MaxWidth: 60,
 				Color: Color{
 					Foreground: "wheat",
-					Background: "black",
+					Background: "default",
 				},
 			}
 		},
@@ -244,7 +244,7 @@ var (
 				MaxWidth: 30,
 				Color: Color{
 					Foreground: "red",
-					Background: "black",
+					Background: "default",
 				},
 			}
 		},

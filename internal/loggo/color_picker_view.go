@@ -46,7 +46,8 @@ type ColorPickerView struct {
 }
 
 func NewColorPickerView(app Loggo, title string, onSelect func(string),
-	toggleFullScreenCallback, closeCallback func()) *ColorPickerView {
+	toggleFullScreenCallback, closeCallback func(),
+) *ColorPickerView {
 	tv := &ColorPickerView{
 		Flex:                     *tview.NewFlex(),
 		app:                      app,
@@ -183,7 +184,7 @@ func (d *ColorPickerData) GetCell(row, column int) *tview.TableCell {
 		label := fmt.Sprintf(` [%s] ■ [-] %s `, c, c)
 		return tview.NewTableCell(label).
 			SetAlign(tview.AlignLeft).
-			SetBackgroundColor(tcell.ColorBlack)
+			SetBackgroundColor(tcell.ColorDefault)
 	}
 	return nil
 }

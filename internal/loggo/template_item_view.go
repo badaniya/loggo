@@ -120,7 +120,7 @@ func (t *TemplateItemView) makeUIComponents() {
 	typeDD.SetCurrentOption(currOpt)
 
 	t.form = tview.NewForm().
-		SetFieldBackgroundColor(tcell.ColorDefault).
+		SetFieldBackgroundColor(color.ColorBackgroundField).
 		SetFieldTextColor(tcell.ColorBlack).
 		AddInputField("Key [red]*", t.key.Name, maxFieldWidth, nil, func(text string) {
 			t.key.Name = strings.TrimSpace(text)
@@ -147,7 +147,7 @@ func (t *TemplateItemView) makeUIComponents() {
 
 	t.makeCaseWhenForm()
 	t.caseWhenLayout = tview.NewFlex().SetDirection(tview.FlexRow)
-	t.caseWhenLayout.SetBackgroundColor(tcell.ColorDefault)
+	t.caseWhenLayout.SetBackgroundColor(color.ColorBackgroundField)
 	t.caseWhenTable = tview.NewTable()
 
 	t.app.SetFocus(t.form)
@@ -175,7 +175,7 @@ func (t *TemplateItemView) makeCaseWhenForm() {
 		})
 
 	t.caseWhenForm = tview.NewForm().
-		SetFieldBackgroundColor(tcell.ColorDefault).
+		SetFieldBackgroundColor(color.ColorBackgroundField).
 		SetFieldTextColor(tcell.ColorBlack).
 		AddInputField("[:default:iu]when[:default:-] Value Matches", t.caseWhenCurrent.MatchValue, maxFieldWidth, nil, func(text string) {
 			t.caseWhenCurrent.MatchValue = strings.TrimSpace(text)

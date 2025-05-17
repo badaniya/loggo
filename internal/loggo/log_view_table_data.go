@@ -27,6 +27,7 @@ import (
 	"regexp"
 	"strings"
 
+	"github.com/badaniya/loggo/internal/color"
 	"github.com/badaniya/loggo/internal/config"
 	"github.com/gdamore/tcell/v2"
 	"github.com/rivo/tview"
@@ -47,7 +48,7 @@ func (d *LogData) GetCell(row, column int) *tview.TableCell {
 		if row == 0 {
 			tc := tview.NewTableCell("[yellow] Line # ").
 				SetAlign(tview.AlignCenter).
-				SetBackgroundColor(tcell.ColorDefault).
+				SetBackgroundColor(color.ColorBackgroundField).
 				SetSelectable(false)
 			return tc
 		} else {
@@ -55,13 +56,13 @@ func (d *LogData) GetCell(row, column int) *tview.TableCell {
 				tc := tview.NewTableCell(fmt.Sprintf("%d ", row)).
 					SetTextColor(tcell.ColorRed).
 					SetAlign(tview.AlignRight).
-					SetBackgroundColor(tcell.ColorDefault)
+					SetBackgroundColor(color.ColorBackgroundField)
 				return tc
 			} else {
 				tc := tview.NewTableCell(fmt.Sprintf("%d ", row)).
 					SetTextColor(tcell.ColorYellow).
 					SetAlign(tview.AlignRight).
-					SetBackgroundColor(tcell.ColorDefault)
+					SetBackgroundColor(color.ColorBackgroundField)
 				return tc
 			}
 		}
@@ -80,7 +81,7 @@ func (d *LogData) GetCell(row, column int) *tview.TableCell {
 	if row == 0 {
 		tc.SetTextColor(tcell.ColorYellow).
 			SetAlign(tview.AlignCenter).
-			SetBackgroundColor(tcell.ColorDefault).
+			SetBackgroundColor(color.ColorBackgroundField).
 			SetSelectable(false)
 		return tc
 	}

@@ -58,9 +58,9 @@ func (t *SplashScreen) makeUIComponents() {
 	t.titleView = tview.NewTextView().SetDynamicColors(true).SetTextAlign(tview.AlignCenter)
 	t.subtitleView = tview.NewTextView().SetDynamicColors(true).SetTextAlign(tview.AlignCenter)
 	t.subtitleView.SetText(fmt.Sprintf(`
-[white:black:b]l'oGGo %s[::-]: [yellow::u]Rich Terminal User Interface for following JSON logs
-[gray::-]Copyright © 2022 Aurelio Calegari, et al.
-[lightgray::u]https://github.com/badaniya/loggo
+[white:default:b]l'oGGo %s[:default:-]: [yellow:default:u]Rich Terminal User Interface for following JSON logs
+[gray:default:-]Copyright © 2022 Aurelio Calegari, et al.
+[lightgray:default:u]https://github.com/aurc/loggo
 `, BuildVersion)).SetBackgroundColor(tcell.ColorDefault)
 }
 

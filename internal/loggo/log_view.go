@@ -115,7 +115,7 @@ func NewLogReader(app *LoggoApp, reader reader.Reader) *LogView {
 	lv.filterChannel <- nil
 
 	go func() {
-		lv.app.ShowModal(NewSplashScreen(lv.app), 71, 16, tcell.ColorDefault, nil)
+		lv.app.ShowModal(NewSplashScreen(lv.app), 71, 16, color.ColorBackgroundField, nil)
 		lv.app.Draw()
 		time.Sleep(2 * time.Second)
 		lv.app.DismissModal(lv.table)
@@ -146,7 +146,7 @@ func (l *LogView) makeUIComponents() {
 					l.logFullScreen = !l.logFullScreen
 					l.makeLayoutsWithJsonView()
 				}, l.makeLayouts)
-			l.jsonView.SetBorder(true).SetTitle("Log Entry")
+			l.jsonView.SetBorder(true).SetTitle("Log Entry").SetBackgroundColor(color.ColorBackgroundField)
 			var b []byte
 			if _, ok := l.finSlice[row-1][config.ParseErr]; ok {
 				b = []byte(fmt.Sprintf(`%v`, l.finSlice[row-1][config.TextPayload]))
@@ -253,7 +253,7 @@ func (l *LogView) makeLayouts() {
 }
 
 func (l *LogView) showAbout() {
-	l.app.ShowModal(NewSplashScreen(l.app), 71, 16, tcell.ColorDefault, nil)
+	l.app.ShowModal(NewSplashScreen(l.app), 71, 16, color.ColorBackgroundField, nil)
 	l.app.Draw()
 	time.Sleep(4 * time.Second)
 	l.app.DismissModal(l.table)

@@ -28,7 +28,7 @@ const (
 	ColorBackgroundField    = tcell.ColorDefault
 	ColorForegroundField    = tcell.ColorWhite
 	ColorSelectedBackground = tcell.ColorDefault
-	ColorSelectedForeground = tcell.ColorDarkGray
+	ColorSelectedForeground = tcell.ColorDarkSlateGray
 )
 
 var (
@@ -45,7 +45,7 @@ var (
 
 const (
 	ClField   = "[#ffaf00:default:b]"
-	ClWhite   = "[#ffffff::-]"
+	ClWhite   = "[#ffffff:default:-]"
 	ClNumeric = "[#00afff]"
 	ClString  = "[#6A9F59]"
 )

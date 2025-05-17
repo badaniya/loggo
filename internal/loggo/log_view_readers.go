@@ -52,7 +52,7 @@ func (l *LogView) read() {
 					}
 					return event
 				},
-				tview.NewButton("[darkred::bu]Q[-::-]uit").SetSelectedFunc(func() {
+				tview.NewButton("[darkred:default:bu]Q[-:default:-]uit").SetSelectedFunc(func() {
 					l.app.Stop()
 				}))
 		} else {
@@ -149,9 +149,9 @@ func (l *LogView) filterLine(e *filter.Expression, index int) error {
 	}
 	a, err := e.Apply(row, l.keyMap)
 	if err != nil {
-		l.app.ShowPrefabModal(fmt.Sprintf("[yellow::b]Error interpreting filter expression:[-::-]\n"+
+		l.app.ShowPrefabModal(fmt.Sprintf("[yellow:default:b]Error interpreting filter expression:[-:default:-]\n"+
 			"Filter stream has reset. Please adjust the filter expression"+
-			"\n[::i]%v", err), 50, 12,
+			"\n[:default:i]%v", err), 50, 12,
 			func(event *tcell.EventKey) *tcell.EventKey {
 				switch event.Key() {
 				case tcell.KeyEnter, tcell.KeyEsc:
@@ -165,7 +165,7 @@ func (l *LogView) filterLine(e *filter.Expression, index int) error {
 				}
 				return event
 			},
-			tview.NewButton("[darkred::bu]C[-::-]ancel").SetSelectedFunc(func() {
+			tview.NewButton("[darkred:default:bu]C[-:default:-]ancel").SetSelectedFunc(func() {
 				l.app.DismissModal(l.table)
 			}))
 		l.filterChannel <- nil

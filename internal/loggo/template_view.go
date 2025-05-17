@@ -201,37 +201,37 @@ func (t *TemplateView) makeContextMenu() {
 	if t.toggleFullScreenCallback != nil {
 		t.contextMenu.AddItem("Toggle Full Screen", "", 'f', func() {
 			t.toggleFullScreenCallback()
-		}).SetSelectedStyle(tcell.StyleDefault.Background(tcell.ColorDefault))
+		}).SetSelectedStyle(tcell.StyleDefault.Background(color.ColorBackgroundField))
 	}
 	t.contextMenu.AddItem("Add New", "", 'a', func() {
 		t.addEntry()
-	}).SetBackgroundColor(tcell.ColorDefault)
+	}).SetBackgroundColor(color.ColorBackgroundField)
 	if r, _ := t.table.GetSelection(); r > 0 {
 		t.contextMenu.AddItem("Edit", "", 'e', func() {
 			t.editEntry()
-		}).SetBackgroundColor(tcell.ColorDefault)
+		}).SetBackgroundColor(color.ColorBackgroundField)
 		t.contextMenu.AddItem("Move Up", "", 'u', func() {
 			t.moveUp()
-		}).SetBackgroundColor(tcell.ColorDefault)
+		}).SetBackgroundColor(color.ColorBackgroundField)
 		t.contextMenu.AddItem("Move Down", "", 'd', func() {
 			t.moveDown()
-		}).SetBackgroundColor(tcell.ColorDefault)
+		}).SetBackgroundColor(color.ColorBackgroundField)
 		t.contextMenu.AddItem("Remove", "", 'r', func() {
 			t.confirmDelete()
-		}).SetBackgroundColor(tcell.ColorDefault)
+		}).SetBackgroundColor(color.ColorBackgroundField)
 	}
 	t.contextMenu.AddItem("Save", "", 's', func() {
 		t.saveForm()
-	}).SetBackgroundColor(tcell.ColorDefault)
+	}).SetBackgroundColor(color.ColorBackgroundField)
 	if t.closeCallback != nil {
 		t.contextMenu.AddItem("Done", "", 'x', func() {
 			t.closeCallback()
-		}).SetBackgroundColor(tcell.ColorDefault)
+		}).SetBackgroundColor(color.ColorBackgroundField)
 	}
 	if t.showQuit {
 		t.contextMenu.AddItem("Quit", "", 'q', func() {
 			t.app.Stop()
-		}).SetBackgroundColor(tcell.ColorDefault)
+		}).SetBackgroundColor(color.ColorBackgroundField)
 	}
 }
 
@@ -408,7 +408,7 @@ func (d *TemplateData) GetCell(row, column int) *tview.TableCell {
 		return tview.NewTableCell(columnNames[column]).
 			SetTextColor(tcell.ColorYellow).
 			SetAlign(tview.AlignCenter).
-			SetBackgroundColor(tcell.ColorDefault).SetSelectable(false)
+			SetBackgroundColor(color.ColorBackgroundField).SetSelectable(false)
 	}
 	// Set Body Cells
 	k := c.Keys[row-1]

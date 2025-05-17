@@ -26,7 +26,7 @@ import (
 	"fmt"
 	"runtime"
 
-	"github.com/aurc/loggo/internal/color"
+	"github.com/badaniya/loggo/internal/color"
 	"github.com/gdamore/tcell/v2"
 	"github.com/rivo/tview"
 )

@@ -27,7 +27,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/aurc/loggo/internal/char"
+	"github.com/badaniya/loggo/internal/char"
 	"github.com/gdamore/tcell/v2"
 	"github.com/rivo/tview"
 )
@@ -60,7 +60,7 @@ func (t *SplashScreen) makeUIComponents() {
 	t.subtitleView.SetText(fmt.Sprintf(`
 [white:black:b]l'oGGo %s[::-]: [yellow::u]Rich Terminal User Interface for following JSON logs
 [gray::-]Copyright © 2022 Aurelio Calegari, et al.
-[lightgray::u]https://github.com/aurc/loggo
+[lightgray::u]https://github.com/badaniya/loggo
 `, BuildVersion)).SetBackgroundColor(tcell.ColorDefault)
 }
 

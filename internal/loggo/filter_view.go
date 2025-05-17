@@ -26,11 +26,11 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/aurc/loggo/internal/char"
+	"github.com/badaniya/loggo/internal/char"
 
-	"github.com/aurc/loggo/internal/filter"
+	"github.com/badaniya/loggo/internal/filter"
 
-	"github.com/aurc/loggo/internal/color"
+	"github.com/badaniya/loggo/internal/color"
 	"github.com/gdamore/tcell/v2"
 	"github.com/rivo/tview"
 )
@@ -147,6 +147,7 @@ func (t *FilterView) search() {
 		t.filterCallback(exp)
 	}
 }
+
 func (t *FilterView) addKey() {
 	tex := t.expressionField.GetText()
 	t.expressionField.SetText(tex + " " + t.keyFinderField.GetText())
@@ -200,7 +201,6 @@ func (t *FilterView) makeLayouts() {
 	t.Flex.Clear().SetDirection(tview.FlexRow).
 		AddItem(filterRow, 3, 1, false).
 		AddItem(actionBar, 1, 1, false)
-
 }
 
 func (t *FilterView) addButton(ab *tview.Flex, title string) {

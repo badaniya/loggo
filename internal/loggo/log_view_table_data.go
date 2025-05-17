@@ -27,7 +27,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/aurc/loggo/internal/config"
+	"github.com/badaniya/loggo/internal/config"
 	"github.com/gdamore/tcell/v2"
 	"github.com/rivo/tview"
 )

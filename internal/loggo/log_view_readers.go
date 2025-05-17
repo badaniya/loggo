@@ -29,9 +29,9 @@ import (
 
 	"github.com/gdamore/tcell/v2"
 
-	"github.com/aurc/loggo/internal/filter"
+	"github.com/badaniya/loggo/internal/filter"
 
-	"github.com/aurc/loggo/internal/config"
+	"github.com/badaniya/loggo/internal/config"
 	"github.com/rivo/tview"
 )
 

@@ -23,9 +23,9 @@ THE SOFTWARE.
 package loggo
 
 import (
-	"github.com/aurc/loggo/internal/config"
-	"github.com/aurc/loggo/internal/reader"
-	"github.com/aurc/loggo/internal/util"
+	"github.com/badaniya/loggo/internal/config"
+	"github.com/badaniya/loggo/internal/reader"
+	"github.com/badaniya/loggo/internal/util"
 	"github.com/gdamore/tcell/v2"
 	"github.com/rivo/tview"
 )

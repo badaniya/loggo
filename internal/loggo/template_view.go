@@ -28,8 +28,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/aurc/loggo/internal/color"
-	"github.com/aurc/loggo/internal/config"
+	"github.com/badaniya/loggo/internal/color"
+	"github.com/badaniya/loggo/internal/config"
 	"github.com/gdamore/tcell/v2"
 	"github.com/rivo/tview"
 )

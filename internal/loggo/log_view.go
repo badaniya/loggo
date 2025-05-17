@@ -99,10 +99,10 @@ func NewLogReader(app *LoggoApp, reader reader.Reader) *LogView {
 				}
 				return event
 			},
-			tview.NewButton("[darkred::bu]Q[-::-]uit").SetSelectedFunc(func() {
+			tview.NewButton("[darkred:default:bu]Q[-:default:-]uit").SetSelectedFunc(func() {
 				lv.app.Stop()
 			}),
-			tview.NewButton("[darkred::bu]C[-::-]ancel").SetSelectedFunc(func() {
+			tview.NewButton("[darkred:default:bu]C[-:default:-]ancel").SetSelectedFunc(func() {
 				lv.app.DismissModal(lv.table)
 			}))
 	})

@@ -162,13 +162,13 @@ func (t *TemplateItemView) makeCaseWhenForm() {
 		}
 		return &t.caseWhenCurrent.Color
 	}
-	caseWhenTextColor := NewColorPickerButton(t.app, "[::iu]then[::-], Text Color",
+	caseWhenTextColor := NewColorPickerButton(t.app, "[:default:iu]then[:default:-], Text Color",
 		config.GetForegroundColorName(caseWhenColorable, "white"), maxFieldWidth,
 		func(text string) {
 			t.caseWhenCurrent.Color.Foreground = strings.TrimSpace(text)
 		})
 	// text bg color
-	caseWhenTextBgColor := NewColorPickerButton(t.app, "[::iu]and[::-], Background Color",
+	caseWhenTextBgColor := NewColorPickerButton(t.app, "[:default:iu]and[:default:-], Background Color",
 		config.GetBackgroundColorName(caseWhenColorable, "black"), maxFieldWidth,
 		func(text string) {
 			t.caseWhenCurrent.Color.Background = strings.TrimSpace(text)
@@ -177,7 +177,7 @@ func (t *TemplateItemView) makeCaseWhenForm() {
 	t.caseWhenForm = tview.NewForm().
 		SetFieldBackgroundColor(tcell.ColorDefault).
 		SetFieldTextColor(tcell.ColorBlack).
-		AddInputField("[::iu]when[::-] Value Matches", t.caseWhenCurrent.MatchValue, maxFieldWidth, nil, func(text string) {
+		AddInputField("[:default:iu]when[:default:-] Value Matches", t.caseWhenCurrent.MatchValue, maxFieldWidth, nil, func(text string) {
 			t.caseWhenCurrent.MatchValue = strings.TrimSpace(text)
 		}).
 		AddFormItem(caseWhenTextColor).

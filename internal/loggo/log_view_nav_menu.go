@@ -32,26 +32,26 @@ import (
 )
 
 const (
-	selectionMouseEnabledMenu  = `[yellow::b] ^n      [-::u]["1"]Enable Selection[""]`
-	selectionMouseDisabledMenu = `[yellow::b] ^n      [-::u]["1"]Enable Mouse[""]`
-	templateMenu               = `[yellow::b] ^t      [-::u]["1"]Template[""]`
-	localFilterMenu            = `[yellow::b] :       [-::u]["1"]Local Filter[""]`
-	viewEntryMenu              = `[yellow::b] Enter[-::-]   View Entry`
-	navigateMenu               = `[yellow::b] ↓ ← ↑ →[-::-] Navigate`
-	goTopMenu                  = `[yellow::b] g       [-::u]["1"]Top[""]`
-	goBottomMenu               = `[yellow::b] G       [-::u]["1"]Bottom[""]`
-	pageUpMenu                 = `[yellow::b] ^b      [-::u]["1"]Pg Up[""]`
-	pageDownMenu               = `[yellow::b] ^f      [-::u]["1"]Pg Down[""]`
-	mouseHoMenu                = `[yellow::b] ⌥ 🖱    [-::-]Horizontal`
-	mouseVeMenu                = `[yellow::b] ⌥ ⌘ 🖱  [-::-]Vertical`
-	aboutMenu                  = `[yellow::b] ^a      [-::u]["1"]About[""]`
-	quitMenu                   = `[yellow::b] ^c      [-::u]["1"]Quit[""]`
-	autoScrollOnMenu           = `[yellow::b] ^Space  [-::u]["1"]Auto-Scroll[::-] [green::bi]ON[-::-][""]`
-	autoScrollOffMenu          = `[yellow::b] ^Space  [-::u]["1"]Auto-Scroll[::-] [red::bi]OFF[-::-][""]`
+	selectionMouseEnabledMenu  = `[yellow:default:b] ^n      [-:default:u]["1"]Enable Selection[""]`
+	selectionMouseDisabledMenu = `[yellow:default:b] ^n      [-:default:u]["1"]Enable Mouse[""]`
+	templateMenu               = `[yellow:default:b] ^t      [-:default:u]["1"]Template[""]`
+	localFilterMenu            = `[yellow:default:b] :       [-:default:u]["1"]Local Filter[""]`
+	viewEntryMenu              = `[yellow:default:b] Enter[-:default:-]   View Entry`
+	navigateMenu               = `[yellow:default:b] ↓ ← ↑ →[-:default:-] Navigate`
+	goTopMenu                  = `[yellow:default:b] g       [-:default:u]["1"]Top[""]`
+	goBottomMenu               = `[yellow:default:b] G       [-:default:u]["1"]Bottom[""]`
+	pageUpMenu                 = `[yellow:default:b] ^b      [-:default:u]["1"]Pg Up[""]`
+	pageDownMenu               = `[yellow:default:b] ^f      [-:default:u]["1"]Pg Down[""]`
+	mouseHoMenu                = `[yellow:default:b] ⌥ 🖱    [-:default:-]Horizontal`
+	mouseVeMenu                = `[yellow:default:b] ⌥ ⌘ 🖱  [-:default:-]Vertical`
+	aboutMenu                  = `[yellow:default:b] ^a      [-:default:u]["1"]About[""]`
+	quitMenu                   = `[yellow:default:b] ^c      [-:default:u]["1"]Quit[""]`
+	autoScrollOnMenu           = `[yellow:default:b] ^Space  [-:default:u]["1"]Auto-Scroll[:default:-] [green:default:bi]ON[-:default:-][""]`
+	autoScrollOffMenu          = `[yellow:default:b] ^Space  [-:default:u]["1"]Auto-Scroll[:default:-] [red:default:bi]OFF[-:default:-][""]`
 )
 
 func (l *LogView) populateMenu() {
-	l.mouseSel = tview.NewTextView().
+	l.mouseSel = tview.NewTextView().SetTextStyle(tcell.StyleDefault.Background(tcell.ColorDefault)).
 		SetDynamicColors(true).SetRegions(true).
 		SetText(selectionMouseEnabledMenu)
 
@@ -66,7 +66,7 @@ func (l *LogView) populateMenu() {
 		//////////////////////////////////////////////////////////////////
 		AddItem(NewHorizontalSeparator(sepStyle, LineHThick, "Stream", sepForeground), 1, 2, false).
 		AddItem(l.followingView, 1, 2, false).
-		AddItem(l.textViewMenuControl(tview.NewTextView().
+		AddItem(l.textViewMenuControl(tview.NewTextView().SetTextStyle(tcell.StyleDefault.Background(tcell.ColorDefault)).
 			SetDynamicColors(true).SetRegions(true).
 			SetText(templateMenu), func() {
 			if l.isTemplateViewShown() {
@@ -75,7 +75,7 @@ func (l *LogView) populateMenu() {
 				l.makeLayoutsWithTemplateView()
 			}
 		}), 1, 2, false).
-		AddItem(l.textViewMenuControl(tview.NewTextView().
+		AddItem(l.textViewMenuControl(tview.NewTextView().SetTextStyle(tcell.StyleDefault.Background(tcell.ColorDefault)).
 			SetDynamicColors(true).SetRegions(true).
 			SetText(localFilterMenu), func() {
 			l.toggleFilter()
@@ -85,13 +85,13 @@ func (l *LogView) populateMenu() {
 		//////////////////////////////////////////////////////////////////
 		AddItem(
 			NewHorizontalSeparator(sepStyle, LineHThick, "Navigation", sepForeground), 1, 2, false).
-		AddItem(tview.NewTextView().
+		AddItem(tview.NewTextView().SetTextStyle(tcell.StyleDefault.Background(tcell.ColorDefault)).
 			SetDynamicColors(true).
 			SetText(viewEntryMenu), 1, 3, false).
-		AddItem(tview.NewTextView().
+		AddItem(tview.NewTextView().SetTextStyle(tcell.StyleDefault.Background(tcell.ColorDefault)).
 			SetDynamicColors(true).
 			SetText(navigateMenu), 1, 3, false).
-		AddItem(l.textViewMenuControl(tview.NewTextView().
+		AddItem(l.textViewMenuControl(tview.NewTextView().SetTextStyle(tcell.StyleDefault.Background(tcell.ColorDefault)).
 			SetDynamicColors(true).SetRegions(true).
 			SetText(goTopMenu), func() {
 			l.isFollowing = false
@@ -100,20 +100,20 @@ func (l *LogView) populateMenu() {
 				go l.table.Select(1, 0)
 			}
 		}), 1, 1, false).
-		AddItem(l.textViewMenuControl(tview.NewTextView().
+		AddItem(l.textViewMenuControl(tview.NewTextView().SetTextStyle(tcell.StyleDefault.Background(tcell.ColorDefault)).
 			SetDynamicColors(true).SetRegions(true).
 			SetText(goBottomMenu), func() {
 			l.isFollowing = false
 			l.table.ScrollToEnd()
 			go l.table.Select(len(l.inSlice), 0)
 		}), 1, 2, false).
-		AddItem(l.textViewMenuControl(tview.NewTextView().
+		AddItem(l.textViewMenuControl(tview.NewTextView().SetTextStyle(tcell.StyleDefault.Background(tcell.ColorDefault)).
 			SetDynamicColors(true).SetRegions(true).
 			SetText(pageUpMenu), func() {
 			l.isFollowing = false
 			l.table.InputHandler()(tcell.NewEventKey(tcell.KeyPgUp, '0', 0), func(p tview.Primitive) {})
 		}), 1, 2, false).
-		AddItem(l.textViewMenuControl(tview.NewTextView().
+		AddItem(l.textViewMenuControl(tview.NewTextView().SetTextStyle(tcell.StyleDefault.Background(tcell.ColorDefault)).
 			SetDynamicColors(true).SetRegions(true).
 			SetText(pageDownMenu), func() {
 			l.isFollowing = false
@@ -127,10 +127,10 @@ func (l *LogView) populateMenu() {
 		AddItem(l.textViewMenuControl(l.mouseSel, l.toggleSelectionMouse), 1, 2, false)
 	if runtime.GOOS != "windows" {
 		l.navMenu.
-			AddItem(tview.NewTextView().
+			AddItem(tview.NewTextView().SetTextStyle(tcell.StyleDefault.Background(tcell.ColorDefault)).
 				SetDynamicColors(true).
 				SetText(mouseHoMenu), 1, 3, false).
-			AddItem(tview.NewTextView().
+			AddItem(tview.NewTextView().SetTextStyle(tcell.StyleDefault.Background(tcell.ColorDefault)).
 				SetDynamicColors(true).
 				SetText(mouseVeMenu), 1, 3, false)
 	}
@@ -139,21 +139,21 @@ func (l *LogView) populateMenu() {
 	//////////////////////////////////////////////////////////////////
 	l.navMenu.
 		AddItem(NewHorizontalSeparator(sepStyle, LineHThick, "Application", sepForeground), 1, 2, false).
-		AddItem(l.textViewMenuControl(tview.NewTextView().
+		AddItem(l.textViewMenuControl(tview.NewTextView().SetTextStyle(tcell.StyleDefault.Background(tcell.ColorDefault)).
 			SetDynamicColors(true).SetRegions(true).
 			SetText(aboutMenu), func() {
 			go func() {
 				l.showAbout()
 			}()
 		}), 1, 2, false).
-		AddItem(l.textViewMenuControl(tview.NewTextView().SetRegions(true).
+		AddItem(l.textViewMenuControl(tview.NewTextView().SetTextStyle(tcell.StyleDefault.Background(tcell.ColorDefault)).SetRegions(true).
 			SetDynamicColors(true).
 			SetText(quitMenu), func() {
 			l.app.Stop()
 		}), 1, 1, false).
 		AddItem(NewHorizontalSeparator(sepStyle, LineHThick, "", sepForeground), 1, 2, false).
-		AddItem(tview.NewBox(), 0, 1, false).
-		AddItem(l.linesView, 1, 1, false)
+		AddItem(tview.NewBox().SetBackgroundColor(tcell.ColorDefault), 0, 1, false).
+		AddItem(l.linesView.SetTextStyle(tcell.StyleDefault.Background(tcell.ColorDefault)), 1, 1, false)
 
 	l.mainMenu = tview.NewFlex().SetDirection(tview.FlexColumn)
 	l.updateBottomBarMenu()
@@ -163,9 +163,9 @@ func (l *LogView) updateBottomBarMenu() {
 	l.mainMenu.Clear().
 		SetBackgroundColor(color.ColorBackgroundField).SetTitleAlign(tview.AlignCenter)
 	l.mainMenu.
-		AddItem(l.textViewMenuControl(tview.NewTextView().
+		AddItem(l.textViewMenuControl(tview.NewTextView().SetTextStyle(tcell.StyleDefault.Background(color.ColorBackgroundField)).
 			SetDynamicColors(true).SetRegions(true).
-			SetText(`[yellow::b](^t) [-::u]["1"]Template[""]`), func() {
+			SetText(`[yellow:default:b](^t) [-:default:u]["1"]Template[""]`), func() {
 			if l.isTemplateViewShown() {
 				// TODO: Find a reliable way to respond to external closure
 			} else {
@@ -176,26 +176,26 @@ func (l *LogView) updateBottomBarMenu() {
 		AddItem(l.followingView, 0, 5, false)
 	if l.isJsonViewShown() && !l.jsonView.HasFocus() {
 		l.mainMenu.
-			AddItem(l.textViewMenuControl(tview.NewTextView().SetRegions(true).
-				SetDynamicColors(true).
-				SetText(`[yellow::b](TAB) [-::u]["1"]Focus Log Entry[""]`), func() {
+			AddItem(l.textViewMenuControl(tview.NewTextView().SetTextStyle(tcell.StyleDefault.Background(color.ColorBackgroundField)).
+				SetDynamicColors(true).SetRegions(true).
+				SetText(`[yellow:default:b](TAB) [-:default:u]["1"]Focus Log Entry[""]`), func() {
 				go l.app.SetFocus(l.jsonView.textView)
 			}), 0, 3, false)
 	} else if l.isJsonViewShown() && l.jsonView.HasFocus() {
 		l.mainMenu.
-			AddItem(l.textViewMenuControl(tview.NewTextView().SetRegions(true).
-				SetDynamicColors(true).
-				SetText(`[yellow::b](TAB) [-::u]["1"]Focus Stream Table[""]`), func() {
+			AddItem(l.textViewMenuControl(tview.NewTextView().SetTextStyle(tcell.StyleDefault.Background(color.ColorBackgroundField)).
+				SetDynamicColors(true).SetRegions(true).
+				SetText(`[yellow:default:b](TAB) [-:default:u]["1"]Focus Stream Table[""]`), func() {
 				go l.app.SetFocus(l.table)
 			}), 0, 3, false)
 	}
 	l.mainMenu.
-		AddItem(l.textViewMenuControl(tview.NewTextView().SetRegions(true).
-			SetDynamicColors(true).
-			SetText(`[yellow::b](^c) [-::u]["1"]Quit[""]`), func() {
+		AddItem(l.textViewMenuControl(tview.NewTextView().SetTextStyle(tcell.StyleDefault.Background(color.ColorBackgroundField)).
+			SetDynamicColors(true).SetRegions(true).
+			SetText(`[yellow:default:b](^c) [-:default:u]["1"]Quit[""]`), func() {
 			l.app.Stop()
 		}), 0, 2, false).
-		AddItem(l.linesView, 0, 3, false)
+		AddItem(l.linesView.SetTextStyle(tcell.StyleDefault.Background(tcell.ColorDefault)), 0, 3, false)
 }
 
 func (l *LogView) textViewMenuControl(tv *tview.TextView, onFocus func()) *tview.TextView {
@@ -226,19 +226,19 @@ func (l *LogView) updateLineView() {
 	if r > 0 {
 		l.linesView.SetText(
 			fmt.
-				Sprintf(`[yellow::]Line [green::b]%d[yellow::-] ([green::b]%d[yellow::-] lines)`,
+				Sprintf(`[yellow:default:]Line [green:default:b]%d[yellow:default:-] ([green:default:b]%d[yellow:default:-] lines)`,
 					r,
 					l.globalCount))
 	} else {
 		l.linesView.SetText(
 			fmt.
-				Sprintf(`[green::b]%d[yellow::-] lines`,
+				Sprintf(`[green:default:b]%d[yellow:default:-] lines`,
 					l.globalCount))
 	}
 	if l.isFollowing {
-		l.followingView.SetText(autoScrollOnMenu)
+		l.followingView.SetText(autoScrollOnMenu).SetTextStyle(tcell.StyleDefault.Background(tcell.ColorDefault))
 	} else {
-		l.followingView.SetText(autoScrollOffMenu)
+		l.followingView.SetText(autoScrollOffMenu).SetTextStyle(tcell.StyleDefault.Background(tcell.ColorDefault))
 	}
 }
 

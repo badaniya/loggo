@@ -201,37 +201,37 @@ func (t *TemplateView) makeContextMenu() {
 	if t.toggleFullScreenCallback != nil {
 		t.contextMenu.AddItem("Toggle Full Screen", "", 'f', func() {
 			t.toggleFullScreenCallback()
-		})
+		}).SetSelectedStyle(tcell.StyleDefault.Background(tcell.ColorDefault))
 	}
 	t.contextMenu.AddItem("Add New", "", 'a', func() {
 		t.addEntry()
-	})
+	}).SetBackgroundColor(tcell.ColorDefault)
 	if r, _ := t.table.GetSelection(); r > 0 {
 		t.contextMenu.AddItem("Edit", "", 'e', func() {
 			t.editEntry()
-		})
+		}).SetBackgroundColor(tcell.ColorDefault)
 		t.contextMenu.AddItem("Move Up", "", 'u', func() {
 			t.moveUp()
-		})
+		}).SetBackgroundColor(tcell.ColorDefault)
 		t.contextMenu.AddItem("Move Down", "", 'd', func() {
 			t.moveDown()
-		})
+		}).SetBackgroundColor(tcell.ColorDefault)
 		t.contextMenu.AddItem("Remove", "", 'r', func() {
 			t.confirmDelete()
-		})
+		}).SetBackgroundColor(tcell.ColorDefault)
 	}
 	t.contextMenu.AddItem("Save", "", 's', func() {
 		t.saveForm()
-	})
+	}).SetBackgroundColor(tcell.ColorDefault)
 	if t.closeCallback != nil {
 		t.contextMenu.AddItem("Done", "", 'x', func() {
 			t.closeCallback()
-		})
+		}).SetBackgroundColor(tcell.ColorDefault)
 	}
 	if t.showQuit {
 		t.contextMenu.AddItem("Quit", "", 'q', func() {
 			t.app.Stop()
-		})
+		}).SetBackgroundColor(tcell.ColorDefault)
 	}
 }
 

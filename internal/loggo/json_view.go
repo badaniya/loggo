@@ -234,13 +234,13 @@ func (j *JsonView) makeContextMenu() {
 	if j.toggleFullScreenCallback != nil {
 		j.contextMenu.AddItem("Toggle Full Screen", "", 'f', func() {
 			j.toggleFullScreenCallback()
-		})
+		}).SetSelectedStyle(tcell.StyleDefault.Background(tcell.ColorDefault)).SetShortcutStyle(tcell.StyleDefault.Background(tcell.ColorDefault))
 	}
 
 	j.contextMenu.
 		AddItem("Copy to Clipboard", "", '`', func() {
 			j.copyToClipboard()
-		}).
+		}).SetMainTextStyle(tcell.StyleDefault.Background(tcell.ColorDefault)).
 		AddItem("Search Word", "", 's', func() {
 			j.prepareCaseInsensitiveSearch()
 		}).

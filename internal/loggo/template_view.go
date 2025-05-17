@@ -197,41 +197,44 @@ func (t *TemplateView) makeSaveUI() (*tview.Flex, *tview.InputField) {
 func (t *TemplateView) makeContextMenu() {
 	t.contextMenu.Clear().ShowSecondaryText(false).SetBorderPadding(0, 0, 1, 1)
 	t.contextMenu.
-		ShowSecondaryText(false)
+		ShowSecondaryText(false).
+		SetSelectedStyle(tcell.StyleDefault.Background(color.ColorBackgroundField)).
+		SetShortcutStyle(tcell.StyleDefault.Background(color.ColorBackgroundField)).
+		SetMainTextStyle(tcell.StyleDefault.Background(color.ColorBackgroundField))
 	if t.toggleFullScreenCallback != nil {
 		t.contextMenu.AddItem("Toggle Full Screen", "", 'f', func() {
 			t.toggleFullScreenCallback()
-		}).SetSelectedStyle(tcell.StyleDefault.Background(color.ColorBackgroundField))
+		})
 	}
 	t.contextMenu.AddItem("Add New", "", 'a', func() {
 		t.addEntry()
-	}).SetBackgroundColor(color.ColorBackgroundField)
+	})
 	if r, _ := t.table.GetSelection(); r > 0 {
 		t.contextMenu.AddItem("Edit", "", 'e', func() {
 			t.editEntry()
-		}).SetBackgroundColor(color.ColorBackgroundField)
+		})
 		t.contextMenu.AddItem("Move Up", "", 'u', func() {
 			t.moveUp()
-		}).SetBackgroundColor(color.ColorBackgroundField)
+		})
 		t.contextMenu.AddItem("Move Down", "", 'd', func() {
 			t.moveDown()
-		}).SetBackgroundColor(color.ColorBackgroundField)
+		})
 		t.contextMenu.AddItem("Remove", "", 'r', func() {
 			t.confirmDelete()
-		}).SetBackgroundColor(color.ColorBackgroundField)
+		})
 	}
 	t.contextMenu.AddItem("Save", "", 's', func() {
 		t.saveForm()
-	}).SetBackgroundColor(color.ColorBackgroundField)
+	})
 	if t.closeCallback != nil {
 		t.contextMenu.AddItem("Done", "", 'x', func() {
 			t.closeCallback()
-		}).SetBackgroundColor(color.ColorBackgroundField)
+		})
 	}
 	if t.showQuit {
 		t.contextMenu.AddItem("Quit", "", 'q', func() {
 			t.app.Stop()
-		}).SetBackgroundColor(color.ColorBackgroundField)
+		})
 	}
 }
 
@@ -442,7 +445,7 @@ func (d *TemplateData) GetCell(row, column int) *tview.TableCell {
 		}
 		cell = tview.NewTableCell(caseWhen.String())
 	}
-	return cell
+	return cell.SetBackgroundColor(color.ColorBackgroundField)
 }
 
 func (d *TemplateData) GetRowCount() int {

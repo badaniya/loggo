@@ -23,8 +23,8 @@ THE SOFTWARE.
 package main
 
 import (
-	"github.com/aurc/loggo/internal/config"
-	"github.com/aurc/loggo/internal/loggo"
+	"github.com/badaniya/loggo/internal/config"
+	"github.com/badaniya/loggo/internal/loggo"
 )
 
 func main() {

@@ -25,9 +25,9 @@ package main
 import (
 	"os"
 
-	"github.com/aurc/loggo/internal/loggo"
-	"github.com/aurc/loggo/internal/reader"
-	"github.com/aurc/loggo/internal/uitest/helper"
+	"github.com/badaniya/loggo/internal/loggo"
+	"github.com/badaniya/loggo/internal/reader"
+	"github.com/badaniya/loggo/internal/uitest/helper"
 )
 
 func main() {

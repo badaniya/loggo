@@ -22,7 +22,7 @@ THE SOFTWARE.
 
 package main
 
-import "github.com/aurc/loggo/cmd"
+import "github.com/badaniya/loggo/cmd"
 
 var version string
 

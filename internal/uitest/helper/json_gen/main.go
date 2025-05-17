@@ -30,7 +30,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/aurc/loggo/internal/uitest/helper"
+	"github.com/badaniya/loggo/internal/uitest/helper"
 	"github.com/google/uuid"
 )
 

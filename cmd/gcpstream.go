@@ -27,12 +27,12 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/aurc/loggo/internal/util"
+	"github.com/badaniya/loggo/internal/util"
 
-	"github.com/aurc/loggo/internal/gcp"
+	"github.com/badaniya/loggo/internal/gcp"
 
-	"github.com/aurc/loggo/internal/loggo"
-	"github.com/aurc/loggo/internal/reader"
+	"github.com/badaniya/loggo/internal/loggo"
+	"github.com/badaniya/loggo/internal/reader"
 	"github.com/spf13/cobra"
 )
 
@@ -119,7 +119,7 @@ func init() {
 	rootCmd.AddCommand(gcpStreamCmd)
 	gcpStreamCmd.Flags().
 		StringP("project", "p", "", "GCP Project ID (required)")
-	//gcpStreamCmd.MarkFlagRequired("project")
+	// gcpStreamCmd.MarkFlagRequired("project")
 	gcpStreamCmd.Flags().
 		StringP("from", "d", "tail",
 			`Start streaming from:

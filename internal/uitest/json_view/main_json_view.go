@@ -25,7 +25,7 @@ package main
 import (
 	"os"
 
-	"github.com/aurc/loggo/internal/loggo"
+	"github.com/badaniya/loggo/internal/loggo"
 )
 
 func main() {

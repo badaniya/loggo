@@ -28,7 +28,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/aurc/loggo/internal/config"
+	"github.com/badaniya/loggo/internal/config"
 )
 
 type Operation string

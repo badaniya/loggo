@@ -23,9 +23,9 @@ THE SOFTWARE.
 package cmd
 
 import (
-	"github.com/aurc/loggo/internal/config"
-	"github.com/aurc/loggo/internal/loggo"
-	"github.com/aurc/loggo/internal/util"
+	"github.com/badaniya/loggo/internal/config"
+	"github.com/badaniya/loggo/internal/loggo"
+	"github.com/badaniya/loggo/internal/util"
 	"github.com/spf13/cobra"
 )
 
@@ -66,7 +66,6 @@ To start from an example template:
 		app := loggo.NewAppWithConfig(cfg)
 		view := loggo.NewTemplateView(app, true, nil, nil)
 		app.Run(view)
-
 	},
 }
 

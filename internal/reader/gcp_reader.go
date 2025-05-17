@@ -33,9 +33,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/aurc/loggo/internal/util"
+	"github.com/badaniya/loggo/internal/util"
 
-	"github.com/aurc/loggo/internal/gcp"
+	"github.com/badaniya/loggo/internal/gcp"
 
 	logging "cloud.google.com/go/logging/apiv2"
 	"github.com/rivo/tview"
@@ -97,7 +97,7 @@ func (s *gcpStream) StreamInto() (err error) {
 			err = s.streamTail(ctx, c)
 		} else {
 			err = s.streamFrom(ctx, c)
-			//fallback to tail if from returns
+			// fallback to tail if from returns
 			if err == nil {
 				err = s.streamTail(ctx, c)
 			}
@@ -228,7 +228,6 @@ func CheckAuth(ctx context.Context, projectID string) error {
 					util.Log().Fatal(err)
 				}
 			}
-
 		}()
 		if err := app.SetRoot(modal, false).EnableMouse(true).Run(); err != nil {
 			panic(err)
@@ -264,7 +263,6 @@ func ParseFrom(str string) string {
 	} else if regD.Match([]byte(str)) {
 		t, err := time.Parse(`2006-01-02T15:04:05`, str)
 		if err != nil {
-
 			util.Log().Fatal("Invalid parameter for 'from' flag - bad format: ", err)
 		}
 		return t.Format(time.RFC3339)

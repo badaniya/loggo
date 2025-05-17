@@ -6,6 +6,7 @@ require (
 	cloud.google.com/go/logging v1.11.0
 	github.com/alecthomas/participle/v2 v2.1.1
 	github.com/atotto/clipboard v0.1.4
+	github.com/aurc/loggo v0.3.21
 	github.com/gdamore/tcell/v2 v2.7.4
 	github.com/google/uuid v1.6.0
 	github.com/nxadm/tail v1.4.11

@@ -26,7 +26,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/aurc/loggo/internal/config"
+	"github.com/badaniya/loggo/internal/config"
 	"github.com/stretchr/testify/assert"
 )
 

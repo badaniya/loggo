@@ -23,8 +23,8 @@ THE SOFTWARE.
 package main
 
 import (
-	"github.com/aurc/loggo/internal/color"
-	"github.com/aurc/loggo/internal/loggo"
+	"github.com/badaniya/loggo/internal/color"
+	"github.com/badaniya/loggo/internal/loggo"
 	"github.com/gdamore/tcell/v2"
 	"github.com/rivo/tview"
 )

@@ -29,12 +29,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/aurc/loggo/internal/char"
+	"github.com/badaniya/loggo/internal/char"
 	log "github.com/sirupsen/logrus"
 )
 
 func InitializeLogging(logFile string) {
-	var file, err = OpenFile(logFile, O_RDWR|O_CREATE|O_APPEND, 0644)
+	file, err := OpenFile(logFile, O_RDWR|O_CREATE|O_APPEND, 0o644)
 	if err != nil {
 		fmt.Println("Could Not Open Log File : " + err.Error())
 	}

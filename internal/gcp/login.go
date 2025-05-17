@@ -210,6 +210,6 @@ func (c *callbackHandler) ServeHTTP(resp http.ResponseWriter, req *http.Request)
 	builder.WriteString(`<style>.bgCol {background-color: #1a1a1a;color: #2f2e2e;}.fgCol {color: #4bcece;}</style>`)
 	builder.WriteString(`<body style="font-family: Courier; background-color: default;color: white;text-align: center"><br><h1>You can close your browser window now!</h1><h3>GCP Authentication Complete</h3><br><h2>`)
 	builder.WriteString(char.NewCanvas().WithWord(char.LoggoLogo...).PrintCanvasAsHtml())
-	builder.WriteString(`</h2><br><spbadaniya style="font-weight: bold;color: white">l'oGGo:</span> <span style="color:yellow"><u>Rich Terminal User Interface for following JSON logs</u></span><br><span style="color: gray">Copyright &copy; 2022 Aurelio Calegari, et al.</span><br><a href="https://github.com/aurc/loggo">https://github.com/aurc/loggo</a></body></html>`)
+	builder.WriteString(`</h2><br><spaurc style="font-weight: bold;color: white">l'oGGo:</span> <span style="color:yellow"><u>Rich Terminal User Interface for following JSON logs</u></span><br><span style="color: gray">Copyright &copy; 2022 Aurelio Calegari, et al.</span><br><a href="https://github.com/aurc/loggo">https://github.com/aurc/loggo</a></body></html>`)
 	_, _ = resp.Write([]byte(builder.String()))
 }
